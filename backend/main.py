@@ -14,9 +14,12 @@ load_dotenv()
 
 app = FastAPI(title="FritzDoctor API", version="0.1.0")
 
+_origins_raw = os.environ.get("FRONTEND_ORIGIN", "http://localhost:5173")
+allowed_origins = [origin.strip() for origin in _origins_raw.split(",")]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[os.environ.get("FRONTEND_ORIGIN", "http://localhost:5173")],
+    allow_origins=allowed_origins,
     allow_methods=["*"],
     allow_headers=["*"],
 )

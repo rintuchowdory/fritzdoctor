@@ -49,7 +49,7 @@ def get_box_status() -> dict:
     data = BoxStatus(
         model=fc.modelname,
         uptime_seconds=status.uptime,
-        connection_status=status.connection_status,
+        connection_status="connected" if status.is_connected else "disconnected",
         external_ip=status.external_ip,
         downstream_max_bps=status.max_bit_rate[0],
         upstream_max_bps=status.max_bit_rate[1],
