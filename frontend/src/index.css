@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+body {
+  background-color: #0a0d10;
+  background-image: radial-gradient(circle at 15% 0%, rgba(79, 209, 197, 0.06), transparent 45%);
+  color: #e8ecef;
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
+::selection {
+  background: #4fd1c5;
+  color: #0a0d10;
+}
+
+:focus-visible {
+  outline: 2px solid #4fd1c5;
+  outline-offset: 2px;
+}
